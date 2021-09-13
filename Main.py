@@ -1,4 +1,5 @@
 from Clases import Auto, Mecanico, Reparacion
+import Menu
 
 mecanicoJuan = Mecanico(nom="Juan Ignacio", ape="Toledo Valdes", edad=25, direccion="Merced 513, Curico")
 M = Mecanico(nom="Daniel", ape="Fernandez Romero", edad=40, direccion="Yungai 1203, Curico")

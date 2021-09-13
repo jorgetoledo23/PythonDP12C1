@@ -2,23 +2,13 @@ class Auto:
     # Atributos / Campos
 
     #Metodo Constructor
-    def __init__(self, pat, chas, col, mar, year):
+    def __init__(self, pat, chas, col, mar, year, modelo):
         self.__patente = str(pat).upper()
         self.nChasis = chas
         self.__color = col
         self.marca = str(mar).upper()
+        self.modelo = str(modelo).upper()
         self.year = year
-        self.estadoMotor = False
-
-    def avanzar():
-        pass
-
-    def encenderMotor(self):
-        self.estadoMotor = True
-
-    def getEstado(yoMismo):
-        if yoMismo.estadoMotor == False: return False
-        else: return True
 
     #Encapsular
     def getPatente(self):
@@ -30,9 +20,13 @@ class Auto:
     def setColor(self, color):
         self.__color = color
 
+    def getInfo(self):
+        return f"AUTO PATENTE {self.__patente},NCHASIS: {self.nChasis}, MARCA: {self.marca}, MODELO: {self.modelo}, COLOR: {self.getColor()}, AÑO: {self.year}"
+
 class Mecanico:
     
-    def __init__(self, nom, ape, edad, direccion):
+    def __init__(self, rut,nom, ape, edad, direccion):
+        self.rut = rut
         self.edad = edad
         self.nombres = str(nom).upper()
         self.apellidos = str(ape).upper()
@@ -43,14 +37,18 @@ class Mecanico:
         else:
             self.mayorEdad = False
 
+    def getInfo(self):
+        return f"RUT: {self.rut}, NOMBRES: {self.nombres}, APELLIDOS: {self.apellidos}"
+
 
 class Reparacion:
     
-    def __init__(self, auto, mecanico):
+    def __init__(self, auto, mecanico, valor):
         self.vehiculoReparacion = auto
         self.mecanicoReparacion = mecanico
+        self.valor = valor
 
 
-    def getInfoReparacion(self):
-        return "INFO REPARACION. Patente: " + self.vehiculoReparacion.getPatente() + " Marca: " + self.vehiculoReparacion.marca + ". MECANICO ASIGNADO: " + self.mecanicoReparacion.nombres
+    def getInfo(self):
+        return f"INFO REPARACION! AUTO: {self.auto.getInfo()}, MECANICO: {self.mecanico.getInfo()}"
 
