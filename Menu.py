@@ -14,7 +14,21 @@ class MenuPrincipal:
         print("Presione 5 para ver los Mecanicos")
         print("Presione 6 para ver las Reparaciones")
 
+
+        print("Presione 7 para Editar un Auto")
+
+        print("Presione 8 para Eliminar un Auto")
+
         print("Presione 0 para Salir")
 
     def LimpiarConsola(self):
         os.system('cls' if os.name=='nt' else 'clear')
+
+    def ConfirmacionIngreso(self, Objeto):
+        input(f"{Objeto} Ingresado Exitosamente. Presione Enter para Continuar..." )
+
+    def ConfirmacionEdit(self, Objeto):
+        input(f"{Objeto} Editado Exitosamente. Presione Enter para Continuar..." )
+
+    def ConfirmacionDelete(self, Objeto):
+        input(f"{Objeto} Eliminado Exitosamente. Presione Enter para Continuar..." )
