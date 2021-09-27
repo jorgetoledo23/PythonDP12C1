@@ -44,11 +44,34 @@ class Mecanico:
 class Reparacion:
     
     def __init__(self, auto, mecanico, valor):
-        self.vehiculoReparacion = auto
-        self.mecanicoReparacion = mecanico
+        self.auto = auto
+        self.mecanico = mecanico
         self.valor = valor
 
 
     def getInfo(self):
         return f"INFO REPARACION! AUTO: {self.auto.getInfo()}, MECANICO: {self.mecanico.getInfo()}"
 
+
+class Asignatura:
+
+    def __init__(self, nombre, codigo, listaEvaluaciones):
+        pass
+
+class Alumno:
+
+    def __init__(self, nombre, apellidos, listaAsignaturas):
+        pass
+
+class Evaluacion:
+
+    def __init__(self, num, fecha, ponderacion, nota):
+        pass
+
+class Animal:
+
+    def __init__(self) -> None:
+        pass
+
+    def caminar(self):
+        pass
