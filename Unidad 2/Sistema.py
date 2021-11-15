@@ -95,3 +95,53 @@ while True:
 
         if oP == "0":
             pass
+
+    if oP == "3":
+        #Gestionamos Vehiculos
+        mP.LimpiarConsola()
+        mP.MenuSecundario("Vehiculo")
+        oP = str(input(" : "))
+
+        if oP == "1":
+            #Ingresar nuevo Vehiculo
+            mP.LimpiarConsola()
+            print("======= Agregando Vehiculo =======")
+            print("Complete la Informacion Solicitada:")
+            print("")
+
+            Patente = input("Ingrese Patente: ")
+            Marca = input("Ingrese Marca: ")
+            Modelo = input("Ingrese Modelo: ")
+            Year = input("Ingrese Year: ")
+            NChasis =  input("Ingrese Numero de Chasis: ")
+            Color = input("Ingrese Color: ")
+
+            mP.LimpiarConsola()
+            print("======= Seleccion Cliente =======")
+            print("")
+
+            for C in dao.ListarClientes():
+                print(C.getInfo())
+
+            print("")
+        
+            rutCliente = input("Ahora Ingrese Rut del Cliente de la Lista Anterior: ")
+
+            A = Auto(Patente, NChasis, Color, Marca, Year, Modelo, rutCliente)
+
+            dao.InsertarVehiculo(A)
+
+            mP.ConfirmacionIngreso("Vehiculo")
+
+        if oP == "2":
+            #listar Vehiculos
+            mP.LimpiarConsola()
+            print("======= Listando Vehiculos =======")
+            print("=================================")
+            print("")
+
+            for A in dao.ListarVehiculos():
+                print(A.getInfo())
+
+            print("")
+            input("Presione Enter para Continuar...")

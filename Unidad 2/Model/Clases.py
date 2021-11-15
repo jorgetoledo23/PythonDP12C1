@@ -2,13 +2,14 @@ class Auto:
     # Atributos / Campos
 
     #Metodo Constructor
-    def __init__(self, pat, chas, col, mar, year, modelo):
+    def __init__(self, pat, chas, col, mar, year, modelo, cliente):
         self.__patente = str(pat).upper()
         self.__nChasis = chas
         self.__color = col
         self.__marca = str(mar).upper()
         self.__modelo = str(modelo).upper()
         self.__year = year
+        self.__cliente = cliente
 
     #Encapsular
     def getPatente(self):
@@ -16,12 +17,24 @@ class Auto:
 
     def getColor(self):
         return self.__color
+    
+    def getMarca(self):
+        return self.__marca
 
-    def setColor(self, color):
-        self.__color = color
+    def getModelo(self):
+        return self.__modelo
+    
+    def getCliente(self):
+        return self.__cliente
+    
+    def getYear(self):
+        return self.__year
+
+    def getChasis(self):
+        return self.__nChasis
 
     def getInfo(self):
-        return f"AUTO PATENTE {self.__patente},NCHASIS: {self.nChasis}, MARCA: {self.marca}, MODELO: {self.modelo}, COLOR: {self.getColor()}, AÑO: {self.year}"
+        return f"Vehiculo Patentte {self.getPatente()}, Marca: {self.getMarca()}, Modelo: {self.getModelo()}, Color: {self.getColor()}, Cliente: {self.getCliente()}"
 
 
 class Persona:
@@ -73,6 +86,7 @@ class MenuPrincipal:
 
         print("Presione 1 para gestionar Clientes")
         print("Presione 2 para gestionar Mecanicos")
+        print("Presione 3 para gestionar Vehiculos")
         
 
         print("Presione 0 para Salir")
