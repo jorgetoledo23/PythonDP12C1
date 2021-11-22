@@ -29,6 +29,19 @@ class DAO:
         cursor.execute(add_cliente, data_cliente)
         self.cnx.commit()
 
+
+    def ActualizarCliente(self, C, Rut):
+        add_cliente = ("UPDATE tbl_clientes SET rut = %s, nombres = %s, apellidos = %s, correo = %s, telefono = %s, "
+                    " direccion = %s, comuna = %s"
+                    " WHERE rut = %s")
+
+        data_cliente = (C.getRut(), C.getNombres(), C.getApellidos(), C.getCorreo(), C.getTelefono(), C.getDireccion(), C.getComuna(), Rut)
+
+        cursor = self.cnx.cursor()
+        cursor.execute(add_cliente, data_cliente)
+        self.cnx.commit()
+
+
     def InsertarMecanico(self, M):
         add_mecanico = ("insert into tbl_mecanicos"
                         "(rut, nombres, apellidos, direccion, correo, telefono, comuna)"
@@ -36,6 +49,17 @@ class DAO:
                         "(%s,%s,%s,%s,%s,%s,%s)")
 
         data_mecanico = (M.getRut(), M.getNombres(), M.getApellidos(), M.getDireccion(), M.getCorreo(), M.getTelefono(), M.getComuna())
+
+        cursor = self.cnx.cursor()
+        cursor.execute(add_mecanico, data_mecanico)
+        self.cnx.commit()
+
+    def ActualizarMecanico(self, M, Rut):
+        add_mecanico = ("UPDATE tbl_mecanicos SET rut = %s, nombres = %s, apellidos = %s, correo = %s, telefono = %s, "
+                    " direccion = %s, comuna = %s"
+                    " WHERE rut = %s")
+
+        data_mecanico = (M.getRut(), M.getNombres(), M.getApellidos(), M.getCorreo(), M.getTelefono(), M.getDireccion(), M.getComuna(), Rut)
 
         cursor = self.cnx.cursor()
         cursor.execute(add_mecanico, data_mecanico)
@@ -81,6 +105,18 @@ class DAO:
             A = Auto(patente, numero_chasis,color, marca, year, modelo, rut_cliente)
             lista.append(A)
         return lista
+
+    def UpdateCliente(self, C, rut):
+        cursor = self.cnx.cursor()
+        add_cliente = ("update tbl_clientes"
+        " set rut = %s, nombres = %s, apellidos = %s, direccion = %s, correo = %s, telefono = %s, comuna = %s"
+        f" where rut = {rut}")
+
+        data_cliente = (C.getRut(), C.getNombres(), C.getApellidos(), C.getDireccion(), C.getCorreo(), C.getTelefono(), C.getComuna())
+
+        cursor = self.cnx.cursor()
+        cursor.execute(add_cliente, data_cliente)
+        self.cnx.commit()
         
 
 
