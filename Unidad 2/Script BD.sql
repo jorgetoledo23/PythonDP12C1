@@ -28,7 +28,8 @@ create table tbl_autos(
     rut_cliente varchar(20),
 	primary key (patente),
     
-    constraint fk_tblclientes_rut foreign key (rut_cliente) references tbl_clientes (rut)    
+    constraint fk_tblclientes_rut foreign key (rut_cliente) references tbl_clientes (rut)
+
 
 );
 

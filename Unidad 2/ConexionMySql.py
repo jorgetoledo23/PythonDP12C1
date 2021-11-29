@@ -42,6 +42,34 @@ class DAO:
         self.cnx.commit()
 
 
+    def EliminarCliente(self, Rut):
+        delete_cliente = ("DELETE FROM tbl_clientes WHERE rut = %s")
+
+        data_cliente = (Rut,)
+
+        cursor = self.cnx.cursor()
+        cursor.execute(delete_cliente, data_cliente)
+        self.cnx.commit()
+
+    def EliminarMecanico(self, Rut):
+        delete_mecanico = ("DELETE FROM tbl_mecanicos WHERE rut = %s")
+
+        data_mecanico = (Rut,)
+
+        cursor = self.cnx.cursor()
+        cursor.execute(delete_mecanico, data_mecanico)
+        self.cnx.commit()
+
+    def EliminarVehiculo(self, Patente):
+        delete_auto = ("DELETE FROM tbl_autos WHERE patente = %s")
+
+        data_auto = (Patente,)
+
+        cursor = self.cnx.cursor()
+        cursor.execute(delete_auto, data_auto)
+        self.cnx.commit()
+
+
     def InsertarMecanico(self, M):
         add_mecanico = ("insert into tbl_mecanicos"
                         "(rut, nombres, apellidos, direccion, correo, telefono, comuna)"

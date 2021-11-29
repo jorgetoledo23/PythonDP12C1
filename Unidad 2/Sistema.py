@@ -81,6 +81,28 @@ while True:
 
             mP.ConfirmacionEdit("Cliente")
 
+        if oP == "4":
+            #Eliminar Cliente
+            mP.LimpiarConsola()
+            print("======= Eliminando Cliente =======")
+            print("Tenga cuidado, la data eliminada no se puede recuperar!")
+            print("")
+
+            for C in dao.ListarClientes():
+                print(C.getInfo())
+            print("")
+
+            Rut = input("Digite el Rut del Cliente a Eliminar: ")
+
+            confirmacion = input(f"Estas seguro de eliminar al Cliente: {Rut} (Y/N): ")
+            if confirmacion == "Y":
+                dao.EliminarCliente(Rut)
+                mP.ConfirmacionDelete("Cliente")
+            if confirmacion == "N":
+                print("Operacion Cancelada!")
+                input("Presione Enter para Continuar!")
+
+
         if oP == "0":
             pass
 
@@ -153,6 +175,27 @@ while True:
             dao.ActualizarMecanico(M, RutAntiguo)
 
             mP.ConfirmacionEdit("Mecanico")
+
+        if oP == "4":
+            #Eliminar Mecanico
+            mP.LimpiarConsola()
+            print("======= Eliminando Mecanico =======")
+            print("Tenga cuidado, la data eliminada no se puede recuperar!")
+            print("")
+
+            for C in dao.ListarMecanicos():
+                print(C.getInfo())
+            print("")
+
+            Rut = input("Digite el Rut del Mecanico a Eliminar: ")
+
+            confirmacion = input(f"Estas seguro de eliminar al Mecanico: {Rut} (Y/N): ")
+            if confirmacion == "Y":
+                dao.EliminarMecanico(Rut)
+                mP.ConfirmacionDelete("Mecanico")
+            if confirmacion == "N":
+                print("Operacion Cancelada!")
+                input("Presione Enter para Continuar!")
 
 
         if oP == "0":

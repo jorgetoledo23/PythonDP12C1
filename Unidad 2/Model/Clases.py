@@ -99,7 +99,7 @@ class MenuPrincipal:
         print(f"Presione 1 para Agregar {texto}")
         print(f"Presione 2 para Listar {texto}")
         print(f"Presione 3 para Editar {texto}")
-        print(f"Presione 4 para Archivar {texto}")
+        print(f"Presione 4 para Eliminar {texto}")
         print(f"Presione 0 para Volver al Menu Principal")
 
 
